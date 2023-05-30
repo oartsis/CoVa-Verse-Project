@@ -1,0 +1,90 @@
+
+@font-face { 
+    
+    font-family: 'Pinyon Script';
+    src: url('{% static "admin/fonts/PinyonScript-Regular.ttf" %}') format('truetype');
+
+    font-family: 'PetitFormalScript-Regular';
+    src: url('{% static "admin/fonts/PetitFormalScript-Regular.ttf" %}') format('truetype');
+
+    font-family: 'OoohBaby-Regular';
+    src: url('{% static "admin/fonts/OoohBaby-Regular.ttf" %}') format('truetype');
+
+    font-family: 'BhuTukaExpandedOne-Regular';
+    src: url('{% static "admin/fonts/BhuTukaExpandedOne-Regular.ttf" %}') format('truetype');
+}
+
+.custom-brand {
+
+    /* สไตล์สำหรับ .navbar-brand.custom-brand */
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+  }
+
+  .custom-font {
+    font-family:'Raleway', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    /* สไตล์สำหรับ .custom-font */
+    background: linear-gradient(to right, #ffd7d7, #d6ffd6, #d5d5ff); /* กำหนดสีแบบลำดับ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .custom-font-2 {
+    font-family: 'BhuTukaExpandedOne-Regular',  cursive;
+    font-weight: bold;
+    /* สไตล์สำหรับ .custom-font */
+    background: linear-gradient(to right, #ffd7d7, #d6ffd6, #d5d5ff); /* กำหนดสีแบบลำดับ */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .change-font {
+    font-family: 'BhuTukaExpandedOne-Regular',  cursive;
+
+  }
+  
+
+
+.my-custom-jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .my-custom-jumbotron h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ff7f50, #ffc8d2, #d494ff, #91e9ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .my-custom-jumbotron p {
+    font-size: 1.5rem;
+    color: #777;
+  }
+  
+  .my-custom-jumbotron .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .my-custom-jumbotron .btn:hover {
+    background-color: #0056b3;
+  }
+  
+  
