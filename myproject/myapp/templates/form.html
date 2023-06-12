@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+
+{% block title %}
+    <title> แบบฟอร์มข้อมูลประชากร </title>
+{% endblock %}
+
+{% block content %}
+    <h2 class="text-center">แบบฟอร์มข้อมูลประชากร</h2>
+    <form method="post" action="form">
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="name">ชื่อประชากร</label>
+            <input type="text" name="name" class="form-comtrol">
+         </div>
+
+         <div class="form-group mb-3">
+            <label for="age">อายุ</label>
+            <input type="number" name="age" class="form-comtrol">
+         </div>
+
+         <input type="submit" value="บันทึกข้อมูล" class-="btn btn-success">
+    </form>
+{% endblock %}

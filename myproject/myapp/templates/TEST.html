@@ -1,0 +1,60 @@
+{% extends "base.html" %} 
+
+{% block content %}
+    <h1>เกี่ยวกับเรา</h1>
+    <p> สวสัดี สิรี</p>
+
+{% endblock %}
+<!DOCTYPE html>
+        <html>
+        <head>
+            <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #video-background {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+            color: #ffffff;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        p {
+            font-size: 18px;
+        }
+         </style>
+        </head>
+        <body>
+            <div id="video-background">
+                <video autoplay loop muted>
+                    <source src="D:\A.project\myproject\Video\11.mp4" type="video/mp4"> <!-- เปลี่ยน path/to/your/video.mp4 เป็นที่อยู่ของวิดิโอของคุณ -->
+                </video>
+            </div>
+            <div class="content">
+                <h1>Welcome to My Website</h1>
+                <p>This is some content.</p>
+            </div>
+        </body>
+    </html>
+
+        
+        
+    
+{% endblock %}

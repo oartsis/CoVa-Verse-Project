@@ -1,0 +1,349 @@
+/*
+
+<!-- Music CSS/JS -->
+<link rel="stylesheet" href="{% static 'admin/css/audio.css' %}">
+<script src="/static/admin/js/audio.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  */
+
+
+*:focus {
+  outline: none;
+}
+
+
+#app-cover {
+  position: fixed;
+  top: 97%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100vw; /* ให้ความกว้างของตัวเล่นเพลงเป็น 50% ของความกว้างของหน้าต่าง */
+  height: 5vh; 
+}
+
+
+#player {
+  
+  position: relative;
+  height:50%;
+  z-index: 3;
+  width: 65%;
+  left: 10vw;
+  height: 30vh; /* ให้ความสูงของตัวเล่นเพลงเป็น 30% ของความสูงของหน้าต่าง */
+  margin-left: -0vw; /* ลบช่องว่างด้านซ้าย เพื่อให้ตัวเล่นเพลงแสดงเต็มขอบของหน้าต่าง */
+}
+
+#player-track {
+  position: absolute;
+  top: 0;
+  right: 15px;
+  left: 15px;
+  padding: 13px 22px 10px 184px;
+  background: linear-gradient(to right, rgba(61, 45, 58, 0.37), rgba(106, 152, 180, 0.39));
+  border-radius: 15px 15px 0 0;
+  transition: 0.3s ease top;
+  z-index: 1;
+}
+
+#player-track.active {
+  top: -45px;
+}
+
+#album-name {
+  color: #ffd7d7;
+  left: -65px;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+  top: -15px; /* ปรับตำแหน่งของตัวอักษรขึ้นไปที่ต้องการ */
+  z-index: 50;
+}
+
+#track-name {
+  color: #eed9d9;
+  left: -40px;
+  font-size: 16px;
+  position: relative;
+  top: -20px; /* ปรับตำแหน่งของตัวอักษรขึ้นไปที่ต้องการ */
+  z-index: 50;
+}
+
+#track-time {
+  height: 27px;
+  left: 80px;
+  margin-bottom: -20px;
+  overflow: hidden;
+  position: relative;
+  top: -60px; /* ปรับตำแหน่งของตัวอักษรขึ้นไปที่ต้องการ */
+  margin-right: 65px; /* กำหนดระยะห่างด้านขวาของตัวอักษร */
+  
+}
+
+#current-time {
+  float: left;
+  
+}
+
+#track-length {
+  float: right;
+}
+
+#current-time,
+#track-length {
+  color: transparent;
+  font-size: 12px;
+  background-color: #ffe8ee;
+  
+
+  z-index: 2;
+
+}
+
+
+#track-time.active #current-time,
+#track-time.active #track-length {
+  color: #b8e0f0;
+  background-color: transparent;
+
+ 
+}
+  
+
+#s-area,
+#seek-bar {
+  position: relative;
+  left: 5%; /* ย้ายตำแหน่งด้านซ้ายเป็น 5% ของความกว้างของหน้าต่าง */
+  top: -40px; /* ปรับตำแหน่งของตัวอักษรขึ้นไปที่ต้องการ */
+  height: 4px;
+  margin-right: 110px;
+  
+  
+  
+
+}
+
+#s-area {
+  background-color: #f59df894;
+  cursor: pointer;
+  position: relative;
+  left: 100px;
+
+}
+
+
+
+
+#ins-time {
+  position: absolute;
+  top: -29px;
+  color: #fff;
+  font-size: 12px;
+  white-space: pre;
+  padding: 5px 6px;
+  border-radius: 4px;
+  display: none;
+}
+
+#s-hover {
+  position:  relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 0.2;
+  width: 40%;
+  z-index: 2;
+  
+}
+
+#ins-time,
+#s-hover {
+  background-color: #64e0ff;
+}
+
+#seek-bar {
+  content: "";
+ 
+  
+  background-image: linear-gradient(to right, #f4bdff, #a8eeff);
+  background-color: #fd6d94;
+  transition: 0.2s ease width;
+  z-index: 1;
+  position: relative;
+ 
+  position: relative;
+  left: -20px ; /* ย้ายตำแหน่งด้านซ้ายเป็น 5% ของความกว้างของหน้าต่าง */
+  
+  top: 0px; /* ปรับตำแหน่งของตัวอักษรขึ้นไปที่ต้องการ */
+  margin-left: 20px;
+  margin-right: 200px;
+  height: 4px;
+  border-radius: 1px;
+}
+
+#player-content {
+  position: relative;
+  height: 100%;
+  background-image: linear-gradient(to right, #ffe0fb, #a9d5ff);
+  box-shadow: 0 px 80px #83bdcc;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+#album-art {
+  position: absolute;
+  top: -40px;
+  width: 80px;
+  height: 80px;
+  margin-left: 40px;
+  transform: rotateZ(0);
+  transition: 0.3s ease all;
+  box-shadow: 0 0 0 5px #cfecff; 
+  
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+#album-art.active {
+  top: -50px;
+  box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
+}
+
+#album-art:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: -10px auto 0 auto;
+  background-color: #d6dee7;
+  border-radius: 50%;
+  box-shadow:   inset 0 0 0 2px #fff; 
+  z-index: 2;
+}
+
+#album-art img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: -1;
+}
+
+#album-art img.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+#album-art.active img.active {
+  z-index: 1;
+  animation: rotateAlbumArt 2s linear 0s infinite forwards;
+}
+
+@keyframes rotateAlbumArt {
+  0% {
+    transform: rotateZ(0);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+#buffer-box {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  left: 0;
+  height: 13px;
+  color: #1f1f1f;
+  font-size: 13px;
+  font-family: Helvetica;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1;
+  padding: 6px;
+  margin: -12px auto 0 auto;
+  background-color: rgba(255, 255, 255, 0.19);
+  opacity: 0;
+  z-index: 2;
+}
+
+#album-art img,
+#buffer-box {
+  transition: 0.1s linear all;
+}
+
+#album-art.buffering img {
+  opacity: 0.25;
+}
+
+#album-art.buffering img.active {
+  opacity: 0.8;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+#album-art.buffering #buffer-box {
+  opacity: 1;
+}
+
+#player-controls {
+  width: 250px;
+  height: 100%;
+  margin: 0 5px 0 14px;
+  float: right;
+  overflow: hidden;
+}
+
+.control {
+  width: 33.333%;
+  float: left;
+  padding: 12px 0;
+}
+
+.button {
+  width: 26px;
+  position: relative; /* หรือใช้ position: absolute; หรือ position: fixed; ตามกรณีที่เหมาะสม */
+  left: 16px; /* ปรับตำแหน่งซ้ายขวาตามต้องการ */
+  top: -6px; /* ปรับตำแหน่งของตัวอักษรขึ้นไปที่ต้องการ */
+  height: 15px;
+  padding: 20px;
+  background-color: #ffffff00;
+  box-shadow: inset 0 0 10px rgba(2, 194, 253, 0.116);
+  border-radius: 6px;
+  cursor: pointer;
+ 
+}
+
+
+.button i {
+  display: block;
+  position: absolute;
+  top: 7px; /* ปรับตำแหน่งขึ้นลงตามต้องการ */
+  right: 7px; /* ปรับตำแหน่งซ้ายขวาตามต้องการ */
+  color: #bd729b88;
+  box-shadow: inset 0 20 30px rgba(8, 66, 141, 0);
+  font-size: 30px;
+  text-align: center;
+  line-height: 1;
+}
+.button i:active {
+  color: #2d2fa7;
+  
+}
+
+.button,.button i {
+  transition: 0.2s ease all;
+}
+
+.button:hover {
+  background-color: #8585ac;
+}
+
+.button:hover i {
+  color: #fff;
+}
+

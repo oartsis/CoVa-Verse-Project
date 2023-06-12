@@ -27,7 +27,7 @@
     font-weight: bold;
     font-size: 20px;
     /* สไตล์สำหรับ .custom-font */
-    background: linear-gradient(to right, #ffd7d7, #d6ffd6, #d5d5ff); /* กำหนดสีแบบลำดับ */
+    background: linear-gradient(to right, #23e423, #00ad00, #d5d5ff); /* กำหนดสีแบบลำดับ */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -36,7 +36,7 @@
     font-family: 'BhuTukaExpandedOne-Regular',  cursive;
     font-weight: bold;
     /* สไตล์สำหรับ .custom-font */
-    background: linear-gradient(to right, #ffd7d7, #d6ffd6, #d5d5ff); /* กำหนดสีแบบลำดับ */
+    background: linear-gradient(to right, #c90f0f, #07c707, #d5d5ff); /* กำหนดสีแบบลำดับ */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
